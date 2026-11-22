@@ -30,7 +30,7 @@ const SERVICES = [
         name: 'Hair Styling',
         desc: 'Blow-dry, curls, waves and elegant styling for any occasion.',
         price: 6000,
-        img: images%20(3).jpg'
+        img: 'images%20(3).jpg'
     },
     {
         name: 'Hair Straightening',
