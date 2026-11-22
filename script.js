@@ -18,19 +18,19 @@ const SERVICES = [
         name: "Women's Haircut",
         desc: 'Layered cuts, bobs, trims and complete restyles by expert hands.',
         price: 1200,
-        img: 'https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?q=80&w=700&auto=format&fit=crop'
+        img: 'images%20(2).jpg'
     },
     {
         name: 'Hair Coloring',
         desc: 'Full color, highlights, balayage and global coloring with premium dyes.',
         price: 5000,
-        img: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=700&auto=format&fit=crop'
+        img: 'images%20(1).jpg'
     },
     {
         name: 'Hair Styling',
         desc: 'Blow-dry, curls, waves and elegant styling for any occasion.',
         price: 6000,
-        img: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=700&auto=format&fit=crop'
+        img: images%20(3).jpg'
     },
     {
         name: 'Hair Straightening',
@@ -48,19 +48,19 @@ const SERVICES = [
         name: 'Hair Treatments',
         desc: 'Keratin, spa and deep-conditioning treatments for healthy hair.',
         price: 10000,
-        img: 'https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=700&auto=format&fit=crop'
+        img: 'images%20(4).jpg'
     },
     {
         name: 'Hair Washing',
         desc: 'Relaxing wash with premium shampoo, conditioning and head massage.',
         price: 5420,
-        img: 'https://images.unsplash.com/photo-1559599101-f09722fb4948?q=80&w=700&auto=format&fit=crop'
+        img: 'hair-4-1.jpg'
     },
     {
         name: 'Beard Trimming',
         desc: 'Sharp beard shaping, trimming and grooming for a refined look.',
-        price: 980,
-        img: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=700&auto=format&fit=crop'
+        price: 500,
+        img: 'Beard_hero1.webp'
     }
 ];
 
