@@ -18,7 +18,7 @@ const SERVICES = [
         name: "Women's Haircut",
         desc: 'Layered cuts, bobs, trims and complete restyles by expert hands.',
         price: 1200,
-        img: '/images%20(2).jpg'
+        img: 'images%20(2).jpg'
     },
     {
         name: 'Hair Coloring',
