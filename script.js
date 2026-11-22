@@ -17,49 +17,49 @@ const SERVICES = [
     {
         name: "Women's Haircut",
         desc: 'Layered cuts, bobs, trims and complete restyles by expert hands.',
-        price: 500,
+        price: 1200,
         img: 'https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?q=80&w=700&auto=format&fit=crop'
     },
     {
         name: 'Hair Coloring',
         desc: 'Full color, highlights, balayage and global coloring with premium dyes.',
-        price: 1200,
+        price: 5000,
         img: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=700&auto=format&fit=crop'
     },
     {
         name: 'Hair Styling',
         desc: 'Blow-dry, curls, waves and elegant styling for any occasion.',
-        price: 450,
+        price: 6000,
         img: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=700&auto=format&fit=crop'
     },
     {
         name: 'Hair Straightening',
         desc: 'Smooth, silky, frizz-free hair with professional straightening.',
-        price: 1500,
+        price: 3000,
         img: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=700&auto=format&fit=crop'
     },
     {
         name: 'Hair Rebonding',
         desc: 'Long-lasting rebonding for sleek, poker-straight glossy hair.',
-        price: 2000,
+        price: 6000,
         img: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=700&auto=format&fit=crop'
     },
     {
         name: 'Hair Treatments',
         desc: 'Keratin, spa and deep-conditioning treatments for healthy hair.',
-        price: 900,
+        price: 10000,
         img: 'https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=700&auto=format&fit=crop'
     },
     {
         name: 'Hair Washing',
         desc: 'Relaxing wash with premium shampoo, conditioning and head massage.',
-        price: 200,
+        price: 5420,
         img: 'https://images.unsplash.com/photo-1559599101-f09722fb4948?q=80&w=700&auto=format&fit=crop'
     },
     {
         name: 'Beard Trimming',
         desc: 'Sharp beard shaping, trimming and grooming for a refined look.',
-        price: 250,
+        price: 980,
         img: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=700&auto=format&fit=crop'
     }
 ];
