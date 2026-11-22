@@ -10,8 +10,8 @@
 const SERVICES = [
     {
         name: "Men's Haircut",
-        desc: 'new cut.',
-        price: Rs.800,
+        desc: 'Precision cuts, fades and classic styles tailored to your face shape',
+        price: 300,
         img: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=700&auto=format&fit=crop'
     },
     {
