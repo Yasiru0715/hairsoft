@@ -98,8 +98,15 @@
                 <p class="section-sub light">Reserve your chair in a few seconds. Our team will confirm your booking shortly.</p>
             </div>
 
-            <form class="booking-form reveal" id="bookingForm" novalidate>
-                <div class="form-grid">
+ <form class="booking-form reveal"
+      id="bookingForm"
+      action="https://formspree.io/f/xyewbkjo"
+      method="POST"
+      novalidate>
+
+  <input type="hidden" name="_subject" value="New Hairsoft Appointment">
+
+  <div class="form-grid">
                     <div class="form-group">
                         <label for="custName">Customer Name <em>*</em></label>
                         <input type="text" id="custName" name="custName"  required>
