@@ -200,7 +200,7 @@ function initBooking() {
     });
 
     // --- Submit & validate ---
-    form.addEventListener('submit', async (e) => {
+   form.addEventListener('submit', e => {
         e.preventDefault();
         let valid = true;
 
@@ -251,14 +251,14 @@ try {
 
     // The confirmation will be displayed after the email is sent.
     openConfirmation({
-        name: name.value.trim(),
-        phone: phone.value.trim(),
-        email: email.value.trim(),
-        service: service.value,
-        stylist: stylist.value,
-        date: dateInput.value,
-        time: time.value,
-        message: document.getElementById('custMsg').value.trim()
+   name: name.value.trim(),
+    phone: phone.value.trim(),
+    email: email.value.trim(),
+    service: service.value,
+    stylist: stylist.value,
+    date: dateInput.value,
+    time: time.value,
+    message: document.getElementById('custMsg').value.trim()
     });
 
 } catch (error) {
