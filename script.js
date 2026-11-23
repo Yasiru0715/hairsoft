@@ -200,7 +200,7 @@ function initBooking() {
     });
 
     // --- Submit & validate ---
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
         let valid = true;
 
@@ -236,14 +236,35 @@ function initBooking() {
         }
 
         openConfirmation({
-            name: name.value.trim(),
-            phone: phone.value.trim(),
-            email: email.value.trim(),
-            service: service.value,
-            stylist: stylist.value,
-            date: dateInput.value,
-            time: time.value,
-            message: document.getElementById('custMsg').value.trim()
+try {
+    const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+            'Accept': 'application/json'
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error('Form submission failed');
+    }
+
+    // The confirmation will be displayed after the email is sent.
+    openConfirmation({
+        name: name.value.trim(),
+        phone: phone.value.trim(),
+        email: email.value.trim(),
+        service: service.value,
+        stylist: stylist.value,
+        date: dateInput.value,
+        time: time.value,
+        message: document.getElementById('custMsg').value.trim()
+    });
+
+} catch (error) {
+    console.error(error);
+    alert('The appointment could not be sent. Please try again.');
+}
         });
     });
 }
