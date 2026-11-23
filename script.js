@@ -273,9 +273,8 @@ try {
 } catch (error) {
     console.error('EmailJS Error:', error);
     alert('Booking notification failed. Please try again.');
-}
-        });
-    });
+    }
+});
 }
 
 function showError(field, message) {
