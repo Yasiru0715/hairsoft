@@ -200,7 +200,7 @@ function initBooking() {
     });
 
     // --- Submit & validate ---
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit',e => {
         e.preventDefault();
         let valid = true;
 
