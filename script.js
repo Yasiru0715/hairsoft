@@ -177,6 +177,9 @@ function observeReveals() {
 function initBooking() {
     const form = document.getElementById('bookingForm');
     if (!form) return;
+   emailjs.init({
+    publicKey: '879rW8HC3_ERfWrvK'
+});
 
     // --- Prevent past dates: date input minimum = today ---
     const dateInput = document.getElementById('apptDate');
@@ -200,7 +203,7 @@ function initBooking() {
     });
 
     // --- Submit & validate ---
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
         e.preventDefault();
         let valid = true;
 
@@ -235,15 +238,42 @@ function initBooking() {
             return;
         }
 
-        openConfirmation({
-            name: name.value.trim(),
-            phone: phone.value.trim(),
-            email: email.value.trim(),
-            service: service.value,
-            stylist: stylist.value,
-            date: dateInput.value,
-            time: time.value,
-            message: document.getElementById('custMsg').value.trim()
+        const details = {
+    name: name.value.trim(),
+    phone: phone.value.trim(),
+    email: email.value.trim(),
+    service: service.value,
+    stylist: stylist.value,
+    date: dateInput.value,
+    time: time.value,
+    message: document.getElementById('custMsg').value.trim()
+};
+
+const bookingId = 'HS-' + Date.now().toString(36).toUpperCase().slice(-6);
+
+try {
+    await emailjs.send(
+        'service_ajih5pf',
+        'template_5pn9aq8',
+        {
+            booking_id: bookingId,
+            customer_name: details.name,
+            customer_phone: details.phone,
+            customer_email: details.email,
+            selected_service: details.service,
+            selected_stylist: details.stylist,
+            appointment_date: details.date,
+            appointment_time: details.time,
+            additional_message: details.message
+        }
+    );
+
+    openConfirmation(details, bookingId);
+
+} catch (error) {
+    console.error('EmailJS Error:', error);
+    alert('Booking notification failed. Please try again.');
+}
         });
     });
 }
@@ -262,11 +292,10 @@ function clearError(field) {
 /* =========================================================
    7. CONFIRMATION MODAL
    ========================================================= */
-function openConfirmation(details) {
+function openConfirmation(details, bookingId) {
     const overlay = document.getElementById('modalOverlay');
     const box = document.getElementById('modalDetails');
-    const bookingId = 'HS-' + Date.now().toString(36).toUpperCase().slice(-6);
-
+   
     const prettyDate = new Date(details.date + 'T00:00:00')
         .toLocaleDateString(undefined, { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' });
 
