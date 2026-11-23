@@ -165,6 +165,11 @@ function observeReveals() {
                     e.target.classList.add('visible');
                     revealObserver.unobserve(e.target);
                 }
+               if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', observeReveals);
+} else {
+    observeReveals();
+}
             });
         }, { threshold: 0.12 });
     }
