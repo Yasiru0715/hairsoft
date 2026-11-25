@@ -129,6 +129,126 @@ function renderServices() {
 }
 
 /* =========================================================
+   HAIR STYLING POPUP
+   ========================================================= */
+
+const HAIR_STYLES = [
+    {
+        name: 'Fashion Hair Style',
+        desc: 'Elegant and modern fashion hairstyles for a stylish look.',
+        price: 3000,
+        img: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=700&auto=format&fit=crop'
+    },
+    {
+        name: 'Kandyan Hair Style',
+        desc: 'Traditional Kandyan hairstyles for cultural occasions.',
+        price: 3500,
+        img: 'https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?q=80&w=700&auto=format&fit=crop'
+    },
+    {
+        name: 'Western Hair Style',
+        desc: 'Beautiful western-inspired hairstyles with a modern finish.',
+        price: 3000,
+        img: 'https://images.unsplash.com/photo-1560869713-7d0a29430803?q=80&w=700&auto=format&fit=crop'
+    },
+    {
+        name: 'Party Hair Style',
+        desc: 'Glamorous hairstyles for parties and special events.',
+        price: 4000,
+        img: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=700&auto=format&fit=crop'
+    }
+];
+
+function openHairStylingPopup() {
+    const overlay = document.getElementById('hairStylingOverlay');
+    const items = document.getElementById('hairStylingItems');
+
+    if (!overlay || !items) return;
+
+    items.innerHTML = HAIR_STYLES.map(style => `
+        <div class="hair-style-card">
+            <img src="${style.img}" alt="${style.name}" loading="lazy">
+
+            <div class="hair-style-info">
+                <h3>${style.name}</h3>
+                <p>${style.desc}</p>
+
+                <div class="hair-style-bottom">
+                    <span class="hair-style-price">
+                        Rs. ${style.price.toLocaleString('en-LK')}
+                    </span>
+
+                    <button class="hair-style-book"
+                        data-style="${style.name}">
+                        Book Your Style
+                    </button>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    items.querySelectorAll('.hair-style-book').forEach(button => {
+        button.addEventListener('click', () => {
+            const serviceSelect = document.getElementById('serviceSelect');
+            const messageField = document.getElementById('custMsg');
+
+            if (serviceSelect) {
+                serviceSelect.value = 'Hair Styling';
+                clearError(serviceSelect);
+            }
+
+            if (messageField) {
+                const selectedStyle = button.dataset.style;
+                messageField.value = messageField.value
+                    ? messageField.value + '\nSelected Style: ' + selectedStyle
+                    : 'Selected Style: ' + selectedStyle;
+            }
+
+            closeHairStylingPopup();
+
+            document.getElementById('appointment')
+                ?.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    overlay.classList.add('show');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeHairStylingPopup() {
+    const overlay = document.getElementById('hairStylingOverlay');
+
+    if (!overlay) return;
+
+    overlay.classList.remove('show');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+}
+
+function initHairStylingPopup() {
+    const overlay = document.getElementById('hairStylingOverlay');
+    const closeButton = document.getElementById('hairStylingClose');
+
+    if (!overlay || !closeButton) return;
+
+    closeButton.addEventListener('click', closeHairStylingPopup);
+
+    overlay.addEventListener('click', e => {
+        if (e.target === overlay) {
+            closeHairStylingPopup();
+        }
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            closeHairStylingPopup();
+        }
+    });
+}
+
+
+/* =========================================================
    3. NAVBAR — sticky style + mobile menu
    ========================================================= */
 function initNavbar() {
@@ -371,5 +491,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollSpy();
     initBooking();
     initModal();
+    initHairStylingPopup();
     observeReveals();
 });
