@@ -23,7 +23,7 @@ const SERVICES = [
     {
         name: 'Hair Coloring',
         desc: 'Full color, highlights, balayage and global coloring with premium dyes.',
-        price: Price negotiable,
+        price: 4500,
         img: 'images%20(1).jpg'
     },
     {
