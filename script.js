@@ -69,12 +69,13 @@ const CURRENCY = 'Rs.'; // change to '$', '€', etc. if needed
 /* =========================================================
    2. RENDER SERVICE CARDS
    ========================================================= */
+
 function renderServices() {
     const grid = document.getElementById('servicesGrid');
     if (!grid) return;
 
     grid.innerHTML = SERVICES.map(s => `
-        <article class="service-card reveal">
+        <article class="service-card reveal" data-service="${s.name}">
             <div class="service-card-img">
                 <img src="${s.img}" alt="${s.name}" loading="lazy">
             </div>
@@ -89,20 +90,38 @@ function renderServices() {
         </article>
     `).join('');
 
-    // Populate the booking form's service dropdown
+    // Populate booking dropdown
     const serviceSelect = document.getElementById('serviceSelect');
-    SERVICES.forEach(s => {
-        const opt = document.createElement('option');
-        opt.value = s.name;
-        opt.textContent = `${s.name} — ${typeof s.price === 'number' ? CURRENCY + ' ' + s.price : s.price}`;
-        serviceSelect.appendChild(opt);
-    });
 
-    // Clicking "Book" on a card pre-selects that service
+    if (serviceSelect) {
+        serviceSelect.innerHTML = '<option value="">Select a service</option>';
+
+        SERVICES.forEach(s => {
+            const opt = document.createElement('option');
+            opt.value = s.name;
+            opt.textContent = `${s.name} — ${typeof s.price === 'number' ? CURRENCY + ' ' + s.price : s.price}`;
+            serviceSelect.appendChild(opt);
+        });
+    }
+
+    // Book button
     grid.querySelectorAll('.book-link').forEach(link => {
         link.addEventListener('click', () => {
-            serviceSelect.value = link.dataset.service;
-            clearError(serviceSelect);
+            if (serviceSelect) {
+                serviceSelect.value = link.dataset.service;
+                clearError(serviceSelect);
+            }
+        });
+    });
+
+    // Hair Styling card click
+    grid.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('click', e => {
+            if (e.target.closest('.book-link')) return;
+
+            if (card.dataset.service === 'Hair Styling') {
+                openHairStylingPopup();
+            }
         });
     });
 
