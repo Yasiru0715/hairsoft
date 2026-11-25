@@ -82,7 +82,7 @@ function renderServices() {
                 <h3>${s.name}</h3>
                 <p>${s.desc}</p>
                 <div class="service-price">
-                    <span class="price">${CURRENCY}${s.price}</span>
+                    <span class="price">${typeof s.price === 'number' ? CURRENCY + ' ' + s.price : s.price}</span>
                     <a href="#appointment" class="book-link" data-service="${s.name}">Book →</a>
                 </div>
             </div>
@@ -94,7 +94,7 @@ function renderServices() {
     SERVICES.forEach(s => {
         const opt = document.createElement('option');
         opt.value = s.name;
-        opt.textContent = `${s.name} — ${CURRENCY}${s.price}`;
+        opt.textContent = `${s.name} — ${typeof s.price === 'number' ? CURRENCY + ' ' + s.price : s.price}`;
         serviceSelect.appendChild(opt);
     });
 
