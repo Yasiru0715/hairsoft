@@ -23,7 +23,7 @@ const SERVICES = [
     {
         name: 'Hair Coloring',
         desc: 'Full color, highlights, balayage and global coloring with premium dyes.',
-        price: 'Negotiable',
+        price: 'Price Negotiable',
         img: 'images%20(1).jpg'
     },
     {
@@ -39,9 +39,9 @@ const SERVICES = [
         img: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=700&auto=format&fit=crop'
     },
     {
-        name: 'Hair Rebonding',
+        name: 'Brazillian Keratin Treatment',
         desc: 'Long-lasting rebonding for sleek, poker-straight glossy hair.',
-        price: 6000,
+        price: '15,000/= upwards,
         img: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=700&auto=format&fit=crop'
     },
     {
