@@ -39,9 +39,9 @@ const SERVICES = [
         img: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=700&auto=format&fit=crop'
     },
     {
-        name: 'Brazillian Keratin Treatment',
-        desc: 'Long-lasting rebonding for sleek, poker-straight glossy hair.',
-        price: '15,000/= upwards,
+        name: 'Brazilian Keratin Treatment',
+        desc: 'Professional keratin treatment for smoother, softer and more manageable hair.',
+        price: '15,000/= upwards',
         img: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=700&auto=format&fit=crop'
     },
     {
