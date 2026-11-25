@@ -113,8 +113,7 @@ function renderServices() {
             }
         });
     });
-
-    // Hair Styling card click
+    // Hair Styling card click event
     grid.querySelectorAll('.service-card').forEach(card => {
         card.addEventListener('click', e => {
             if (e.target.closest('.book-link')) return;
