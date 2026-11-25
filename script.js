@@ -186,6 +186,7 @@ function openHairStylingPopup() {
         </div>
     `).join('');
 
+
     items.querySelectorAll('.hair-style-book').forEach(button => {
         button.addEventListener('click', () => {
             const serviceSelect = document.getElementById('serviceSelect');
@@ -196,11 +197,16 @@ function openHairStylingPopup() {
                 clearError(serviceSelect);
             }
 
-            if (messageField) {
-                const selectedStyle = button.dataset.style;
-                messageField.value = messageField.value
-                    ? messageField.value + '\nSelected Style: ' + selectedStyle
-                    : 'Selected Style: ' + selectedStyle;
+            const selectedStyle = HAIR_STYLES.find(
+                style => style.name === button.dataset.style
+            );
+
+            if (messageField && selectedStyle) {
+                const price = 'Rs. ' + selectedStyle.price.toLocaleString('en-LK');
+
+                messageField.value =
+                    'Selected Style: ' + selectedStyle.name +
+                    '\nPrice: ' + price;
             }
 
             closeHairStylingPopup();
@@ -209,6 +215,7 @@ function openHairStylingPopup() {
                 ?.scrollIntoView({ behavior: 'smooth' });
         });
     });
+
 
     overlay.classList.add('show');
     overlay.setAttribute('aria-hidden', 'false');
