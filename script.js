@@ -36,7 +36,7 @@ const SERVICES = [
         name: 'Hair Straightening',
         desc: 'Smooth, silky, frizz-free hair with professional straightening.',
         price: '10,000/= upwards',
-        img: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=700&auto=format&fit=crop'
+        img: 'images%20(5).jpg'
     },
     {
         name: 'Brazilian Keratin Treatment',
