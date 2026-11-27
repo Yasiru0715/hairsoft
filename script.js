@@ -53,7 +53,7 @@ const SERVICES = [
     {
         name: 'Hair Washing',
         desc: 'Relaxing wash with premium shampoo, conditioning and head massage.',
-        price: 5420,
+        price: '1500/= upwards',
         img: 'hair-4-1.jpg'
     },
     {
